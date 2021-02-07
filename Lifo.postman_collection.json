@@ -1,0 +1,36 @@
+{
+	"info": {
+		"_postman_id": "8fd359bf-df0e-4926-846f-c778c3be1272",
+		"name": "Lifo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Push",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\" : \"mandar1\",\r\n    \"lastName\" : \"k2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://192.168.99.100:7000/nokia/v1/push"
+			},
+			"response": []
+		},
+		{
+			"name": "Pop",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://192.168.99.100:7000/nokia/v1/pop"
+			},
+			"response": []
+		}
+	]
+}
