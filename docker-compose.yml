@@ -1,0 +1,39 @@
+version: '3'
+services:
+  nkassignment:
+    image: lifoassignment
+    ports:
+      - "7000:7000"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/lifo?allowPublicKeyRetrieval=true&useSSL=false
+      - SPRING_DATASOURCE_DRIVERCLASSNAME=org.postgresql.Driver
+      - SPRING_JPA_DATABASE-PLATFORM=org.hibernate.dialect.PostgreSQL9Dialect
+      - SPRING_DATASOURCE_USERNAME=mandar
+      - SPRING_DATASOURCE_PASSWORD=mandar@123
+    depends_on:
+       - postgres-standalone
+    network_mode: "host"
+      
+  mysql-standalone:
+    image: mysql:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=lifo
+      - MYSQL_USER=mandar
+      - MYSQL_PASSWORD=mandar@123
+      - MYSQL_ROOT_HOST=localhost
+    ports:
+      - "3306:3306"
+    network_mode: "host"
+    
+  postgres-standalone:
+    image: postgres:latest
+    environment:
+      - POSTGRES_ROOT_PASSWORD=root
+      - POSTGRES_DB=lifo
+      - POSTGRES_USER=mandar
+      - POSTGRES_PASSWORD=mandar@123
+    ports:
+      - "5432:5432"
+    network_mode: "host"
+      
